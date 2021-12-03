@@ -1,0 +1,85 @@
+POST localhost:8080/signUp
+Content-Type: application/json
+
+{
+  "username": "densh2001",
+  "password": "123"
+}
+
+###
+
+POST localhost:8080/signUp
+Content-Type: application/json
+
+{
+  "username": "densh2002",
+  "password": "123"
+}
+
+###
+
+POST localhost:8080/signIn
+Content-Type: application/json
+
+{
+  "username": "densh2001",
+  "password": "123"
+}
+
+###
+
+POST localhost:8080/signIn
+Content-Type: application/json
+
+{
+  "username": "densh2002",
+  "password": "123"
+}
+
+###
+
+POST localhost:8080/digests/add
+Content-Type: application/json
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg2NDc5MTZ9.edzgvQQtPOrluGNd2ZZmKSc59gL_pY5IRn1Xoge0IkQ
+
+{
+  "filmName": "Harry Potter",
+  "text": "another review"
+}
+
+###
+
+POST localhost:8080/digests/add
+Content-Type: application/json
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg2NDc5MTZ9.edzgvQQtPOrluGNd2ZZmKSc59gL_pY5IRn1Xoge0IkQ
+
+{
+  "filmName": "fnewrbvpwrebw",
+  "text": "123"
+}
+
+###
+
+GET localhost:8080/digests
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg2NDc5MTZ9.edzgvQQtPOrluGNd2ZZmKSc59gL_pY5IRn1Xoge0IkQ
+
+###
+
+GET localhost:8080/digests/61aa4244b328873286d510c1
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg2NDc5MTZ9.edzgvQQtPOrluGNd2ZZmKSc59gL_pY5IRn1Xoge0IkQ
+
+###
+
+PUT localhost:8080/digests/refactor/61aa4244b328873286d510c1
+Content-Type: application/json
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg2NDc5MTZ9.edzgvQQtPOrluGNd2ZZmKSc59gL_pY5IRn1Xoge0IkQ
+
+{
+  "filmName": "",
+  "text": "refactored review"
+}
+
+###
+
+DELETE localhost:8080/digests/delete/61aa4244b328873286d510c1
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg2NDc5MTZ9.edzgvQQtPOrluGNd2ZZmKSc59gL_pY5IRn1Xoge0IkQ
