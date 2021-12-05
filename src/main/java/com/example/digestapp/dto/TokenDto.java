@@ -1,4 +1,4 @@
-package com.example.digestapp.models.dto;
+package com.example.digestapp.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

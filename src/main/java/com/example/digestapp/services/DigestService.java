@@ -1,19 +1,19 @@
 package com.example.digestapp.services;
 
-import com.example.digestapp.models.data.Digest;
-import com.example.digestapp.models.data.User;
+import com.example.digestapp.dto.DigestDto;
+import com.example.digestapp.models.User;
 
 import java.util.List;
 
 public interface DigestService {
 
-    Digest save(String filmName, String text, User user);
+    DigestDto save(String filmName, String text, User user);
 
-    List<Digest> findAll();
+    List<DigestDto> findAll();
 
-    Digest findById(String id);
+    DigestDto findById(String id);
 
-    Digest refactor(String id, String newText, User user);
+    DigestDto refactor(String id, String newText, User user);
 
     boolean delete(String id, User user);
 }

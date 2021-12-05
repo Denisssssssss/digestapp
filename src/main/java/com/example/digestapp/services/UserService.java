@@ -1,6 +1,6 @@
 package com.example.digestapp.services;
 
-import com.example.digestapp.models.data.User;
+import com.example.digestapp.models.User;
 
 public interface UserService {
 

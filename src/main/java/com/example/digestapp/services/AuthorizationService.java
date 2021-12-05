@@ -1,8 +1,10 @@
 package com.example.digestapp.services;
 
+import com.example.digestapp.dto.TokenDto;
+
 public interface AuthorizationService {
 
-    String signUp(String username, String password);
+    TokenDto signUp(String username, String password);
 
-    String signIn(String username, String password);
+    TokenDto signIn(String username, String password);
 }

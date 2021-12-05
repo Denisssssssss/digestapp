@@ -1,4 +1,4 @@
-package com.example.digestapp.models.data;
+package com.example.digestapp.models;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

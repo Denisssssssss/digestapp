@@ -1,6 +1,6 @@
 package com.example.digestapp.repositories;
 
-import com.example.digestapp.models.data.Digest;
+import com.example.digestapp.models.Digest;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

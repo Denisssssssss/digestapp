@@ -1,6 +1,6 @@
 package com.example.digestapp.security;
 
-import com.example.digestapp.models.data.User;
+import com.example.digestapp.models.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;

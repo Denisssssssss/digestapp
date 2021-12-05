@@ -1,6 +1,6 @@
-package com.example.digestapp.models.dto;
+package com.example.digestapp.dto;
 
-import com.example.digestapp.models.data.Digest;
+import com.example.digestapp.models.Digest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -1,5 +1,6 @@
 package com.example.digestapp.services;
 
+import com.example.digestapp.exceptions.EntityNotFoundException;
 import com.example.digestapp.feign.TmdbClient;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONException;
@@ -21,7 +22,7 @@ public class TmdbServiceImpl implements TmdbService {
                     .getJSONObject(0)
                     .getLong("id");
         } catch (JSONException e) {
-            throw new IllegalArgumentException("Film not found");
+            throw new EntityNotFoundException("Film not found");
         }
     }
 }

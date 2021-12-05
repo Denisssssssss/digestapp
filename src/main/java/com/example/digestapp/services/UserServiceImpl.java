@@ -1,12 +1,12 @@
 package com.example.digestapp.services;
 
-import com.example.digestapp.models.data.User;
+import com.example.digestapp.exceptions.EntityNotFoundException;
+import com.example.digestapp.exceptions.IllegalUsernameException;
+import com.example.digestapp.models.User;
 import com.example.digestapp.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityNotFoundException;
 
 @Service
 @RequiredArgsConstructor
@@ -20,7 +20,8 @@ public class UserServiceImpl implements UserService {
 
         if (!userRepository.findByUsername(username).isPresent()) {
             return userRepository.save(new User(username, passwordEncoder.encode(password)));
-        } else throw new IllegalArgumentException("Username is already taken");
+        }
+        throw new IllegalUsernameException("Username is already taken");
     }
 
     @Override

@@ -1,12 +1,14 @@
 package com.example.digestapp.services;
 
-import com.example.digestapp.models.data.Digest;
-import com.example.digestapp.models.data.User;
+import com.example.digestapp.dto.DigestDto;
+import com.example.digestapp.exceptions.DigestRefactorException;
+import com.example.digestapp.exceptions.EntityNotFoundException;
+import com.example.digestapp.models.Digest;
+import com.example.digestapp.models.User;
 import com.example.digestapp.repositories.DigestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -17,34 +19,38 @@ public class DigestServiceImpl implements DigestService {
     private final TmdbService tmdbService;
 
     @Override
-    public Digest save(String filmName, String text, User user) {
+    public DigestDto save(String filmName, String text, User user) {
 
         Long filmId = tmdbService.getFilmId(filmName);
-        return digestRepository.save(new Digest(filmName, text, user.getId(), filmId));
+        return new DigestDto(digestRepository.save(new Digest(filmName, text, user.getId(), filmId)));
     }
 
     @Override
-    public List<Digest> findAll() {
-        return digestRepository.findAll();
+    public List<DigestDto> findAll() {
+        return DigestDto.of(digestRepository.findAll());
     }
 
     @Override
-    public Digest findById(String id) {
-        return digestRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Digest not found"));
+    public DigestDto findById(String id) {
+        return new DigestDto(
+                digestRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Digest not found"))
+        );
     }
 
     @Override
-    public Digest refactor(String id, String newText, User user) {
-        Digest digest = findById(id);
+    public DigestDto refactor(String id, String newText, User user) {
+        Digest digest = digestRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Digest not found"));
         if (digest.getAuthorId().equals(user.getId())) {
             digest.setText(newText);
-            return digestRepository.save(digest);
-        } else throw new IllegalStateException("Can't refactor someone else's digests");
+            return new DigestDto(digestRepository.save(digest));
+        }
+        throw new DigestRefactorException("Can't refactor someone else's digests");
     }
 
     @Override
     public boolean delete(String id, User user) {
-        if (findById(id).getAuthorId().equals(user.getId())) {
+        Digest digest = digestRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Digest not found"));
+        if (digest.getAuthorId().equals(user.getId())) {
             digestRepository.deleteById(id);
             return true;
         }

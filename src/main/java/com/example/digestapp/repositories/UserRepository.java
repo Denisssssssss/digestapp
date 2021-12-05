@@ -1,6 +1,6 @@
 package com.example.digestapp.repositories;
 
-import com.example.digestapp.models.data.User;
+import com.example.digestapp.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

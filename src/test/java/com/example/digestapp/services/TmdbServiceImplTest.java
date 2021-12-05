@@ -1,5 +1,6 @@
 package com.example.digestapp.services;
 
+import com.example.digestapp.exceptions.EntityNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class TmdbServiceImplTest {
     public void throwsExceptionOnIncorrectInput() {
 
         String invalidInput = "furwihuifniver";
-        Assertions.assertThrows(IllegalArgumentException.class, () -> tmdbService.getFilmId(invalidInput));
+        Assertions.assertThrows(EntityNotFoundException.class, () -> tmdbService.getFilmId(invalidInput));
     }
 
     @Test
