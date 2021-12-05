@@ -40,22 +40,33 @@ Content-Type: application/json
 
 POST localhost:8080/digests/add
 Content-Type: application/json
-Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg2NDc5MTZ9.edzgvQQtPOrluGNd2ZZmKSc59gL_pY5IRn1Xoge0IkQ
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NzAyMDEwLCJleHAiOjE2Mzg4MDIwMTB9.4S5zC0PDpuFFVlwmizMIIDMYtqZoSQqB6kUBi7sibYk
 
 {
   "filmName": "Harry Potter",
-  "text": "another review"
+  "text": "user1 review"
 }
 
 ###
 
 POST localhost:8080/digests/add
 Content-Type: application/json
-Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg2NDc5MTZ9.edzgvQQtPOrluGNd2ZZmKSc59gL_pY5IRn1Xoge0IkQ
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjM4NzAyMDU5LCJleHAiOjE2Mzg4MDIwNTl9.ZFhvNfrTgLTD07DHTKxUVZUER68Cuao50eK5wr3RFWA
 
 {
   "filmName": "fnewrbvpwrebw",
-  "text": "123"
+  "text": "user2 review"
+}
+
+###
+
+POST localhost:8080/digests/add
+Content-Type: application/json
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjM4NzAyMDU5LCJleHAiOjE2Mzg4MDIwNTl9.ZFhvNfrTgLTD07DHTKxUVZUER68Cuao50eK5wr3RFWA
+
+{
+"filmName": "Harry Potter",
+"text": "user2 review"
 }
 
 ###
@@ -70,13 +81,13 @@ Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg
 
 ###
 
-PUT localhost:8080/digests/refactor/61aa4244b328873286d510c1
+PUT localhost:8080/digests/refactor/61ac9c0ff1f5bf2093683e70
 Content-Type: application/json
-Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjM4NTQ3OTE2LCJleHAiOjE2Mzg2NDc5MTZ9.edzgvQQtPOrluGNd2ZZmKSc59gL_pY5IRn1Xoge0IkQ
+Access: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjM4NzAyMDU5LCJleHAiOjE2Mzg4MDIwNTl9.ZFhvNfrTgLTD07DHTKxUVZUER68Cuao50eK5wr3RFWA
 
 {
   "filmName": "",
-  "text": "refactored review"
+  "text": "refactored user2 review"
 }
 
 ###

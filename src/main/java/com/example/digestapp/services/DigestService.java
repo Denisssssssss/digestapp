@@ -13,7 +13,7 @@ public interface DigestService {
 
     Digest findById(String id);
 
-    Digest refactor(String id, String newText);
+    Digest refactor(String id, String newText, User user);
 
     boolean delete(String id, User user);
 }

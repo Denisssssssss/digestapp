@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
@@ -43,8 +44,10 @@ public class DigestController {
     }
 
     @PutMapping("/refactor/{id}")
-    public ResponseEntity<DigestDto> refactorDigest(@PathVariable("id") String id, @RequestBody DigestDto digestDto) {
-        return ResponseEntity.ok(new DigestDto(digestService.refactor(id, digestDto.getText())));
+    public ResponseEntity<DigestDto> refactorDigest(@PathVariable("id") String id,
+                                                    @RequestBody DigestDto digestDto,
+                                                    @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        return ResponseEntity.ok(new DigestDto(digestService.refactor(id, digestDto.getText(), userDetails.getUser())));
     }
 
     @DeleteMapping("/delete/{id}")
@@ -55,8 +58,8 @@ public class DigestController {
         );
     }
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ExceptionDto> handleBadRequest(IllegalArgumentException e) {
+    @ExceptionHandler({IllegalArgumentException.class, EntityNotFoundException.class, IllegalStateException.class})
+    public ResponseEntity<ExceptionDto> handleBadRequest(Exception e) {
         return ResponseEntity.badRequest().body(new ExceptionDto(e.getMessage()));
     }
 }

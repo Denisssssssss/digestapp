@@ -34,11 +34,12 @@ public class DigestServiceImpl implements DigestService {
     }
 
     @Override
-    public Digest refactor(String id, String newText) {
-
+    public Digest refactor(String id, String newText, User user) {
         Digest digest = findById(id);
-        digest.setText(newText);
-        return digestRepository.save(digest);
+        if (digest.getAuthorId().equals(user.getId())) {
+            digest.setText(newText);
+            return digestRepository.save(digest);
+        } else throw new IllegalStateException("Can't refactor someone else's digests");
     }
 
     @Override
@@ -49,4 +50,5 @@ public class DigestServiceImpl implements DigestService {
         }
         return false;
     }
+
 }
